@@ -13,7 +13,7 @@ app.run(function ($rootScope, $location, $q) {
         routeDeferred.resolve();
     });
 
-
+ 
     //$rootScope.$on('$routeChangeError', function () {
     //    routeDeferred.reject();
     //});

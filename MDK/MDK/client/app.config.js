@@ -29,7 +29,7 @@ angular.module('MDKApp').config(['$stateProvider', '$urlRouterProvider', functio
         });
 
     $urlRouterProvider.otherwise("/login");
-
+     
 }]);
 
 
