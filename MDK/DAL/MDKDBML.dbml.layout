@@ -26,12 +26,6 @@
         <elementListCompartment Id="be6d54de-aaf0-4039-a557-9a6551c4ba5c" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ac818c3c-b3cf-47d7-aeb7-3bf3d08bdb49" absoluteBounds="6.75, 2.75, 2, 1.7708968098958327">
-      <DataClassMoniker Name="/MDKDBMLDataContext/UserMangement" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a6c2f9b9-a985-48c7-94bd-80e0257de987" absoluteBounds="6.765, 3.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <associationConnector edgePoints="[(1.75 : 7.1170068359375); (1.75 : 8.49120198567708); (3.5 : 8.49120198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_ITInfo" />
       <nodes>
@@ -66,33 +60,39 @@
         <elementListCompartment Id="83f83f3e-ad21-42c7-bd83-0d0afe104862" absoluteBounds="5.015, 5.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 5.87100341796875); (5 : 5.87100341796875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.87100341796875); (5 : 5.87100341796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_BankInfo" />
       <nodes>
         <classShapeMoniker Id="b8bc0d8d-289d-4d1b-a61d-5cd06bf19e16" />
         <classShapeMoniker Id="afc6e38e-ccbc-4092-9c80-d8e3dec96af6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.18550170898438); (5 : 5.18550170898438)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.18550170898438); (5 : 5.18550170898438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_BankInfo1" />
       <nodes>
         <classShapeMoniker Id="b8bc0d8d-289d-4d1b-a61d-5cd06bf19e16" />
         <classShapeMoniker Id="afc6e38e-ccbc-4092-9c80-d8e3dec96af6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.55650512695312); (5 : 6.55650512695312)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 6.55650512695312); (5 : 6.55650512695312)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_BankInfo2" />
       <nodes>
         <classShapeMoniker Id="b8bc0d8d-289d-4d1b-a61d-5cd06bf19e16" />
         <classShapeMoniker Id="afc6e38e-ccbc-4092-9c80-d8e3dec96af6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.52825256347656); (5 : 5.52825256347656)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.52825256347656); (5 : 5.52825256347656)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_BankInfo3" />
       <nodes>
         <classShapeMoniker Id="b8bc0d8d-289d-4d1b-a61d-5cd06bf19e16" />
         <classShapeMoniker Id="afc6e38e-ccbc-4092-9c80-d8e3dec96af6" />
       </nodes>
     </associationConnector>
+    <classShape Id="18f10b40-a270-4a61-b1cc-c52dc83e52ad" absoluteBounds="7, 2.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/MDKDBMLDataContext/UserMangement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3c044e2-e92e-489a-872b-e848338c3275" absoluteBounds="7.015, 2.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MDK_DB" Class="MDKDBMLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\;Initial Catalog=MDK_DB;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="MDK_DBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ITInfo" Member="ITInfos">
     <Type Name="ITInfo">
       <Column Name="Pid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -56,15 +57,6 @@
       <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.UserMangement" Member="UserMangements">
-    <Type Name="UserMangement">
-      <Column Name="Uid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Role" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="LoginName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.BankInfo" Member="BankInfos">
     <Type Name="BankInfo">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -80,6 +72,15 @@
       <Association Name="PersonalInformation_BankInfo1" Member="PersonalInformation1" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
       <Association Name="PersonalInformation_BankInfo2" Member="PersonalInformation2" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
       <Association Name="PersonalInformation_BankInfo3" Member="PersonalInformation3" ThisKey="BusinessGUID" OtherKey="BusinessGUID" Type="PersonalInformation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserMangement" Member="UserMangements">
+    <Type Name="UserMangement">
+      <Column Name="Uid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LoginName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

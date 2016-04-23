@@ -29,7 +29,8 @@ namespace DAL.Admin
             {
                 modelEntity = (LoginModel)model;
 
-                var record = _dataContext.UserMangements.Where(x => x.LoginName == modelEntity.UserId && x.Password == modelEntity.Password).ToList();
+                var record =
+                    _dataContext.UserMangements.Where(x => x.LoginName == modelEntity.UserId && x.Password == modelEntity.Password).ToList();
 
                 if (record.Count > 0)
                 {
