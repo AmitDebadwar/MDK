@@ -42,12 +42,15 @@ namespace DAL
     partial void InsertRoleMangemant(RoleMangemant instance);
     partial void UpdateRoleMangemant(RoleMangemant instance);
     partial void DeleteRoleMangemant(RoleMangemant instance);
-    partial void InsertUserMangement(UserMangement instance);
-    partial void UpdateUserMangement(UserMangement instance);
-    partial void DeleteUserMangement(UserMangement instance);
     partial void InsertBankInfo(BankInfo instance);
     partial void UpdateBankInfo(BankInfo instance);
     partial void DeleteBankInfo(BankInfo instance);
+    partial void InsertUserMangement(UserMangement instance);
+    partial void UpdateUserMangement(UserMangement instance);
+    partial void DeleteUserMangement(UserMangement instance);
+    partial void InsertClientInfo(ClientInfo instance);
+    partial void UpdateClientInfo(ClientInfo instance);
+    partial void DeleteClientInfo(ClientInfo instance);
     #endregion
 		
 		public MDKDBMLDataContext(string connection) : 
@@ -106,6 +109,14 @@ namespace DAL
 			}
 		}
 		
+		public System.Data.Linq.Table<BankInfo> BankInfos
+		{
+			get
+			{
+				return this.GetTable<BankInfo>();
+			}
+		}
+		
 		public System.Data.Linq.Table<UserMangement> UserMangements
 		{
 			get
@@ -114,11 +125,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<BankInfo> BankInfos
+		public System.Data.Linq.Table<ClientInfo> ClientInfos
 		{
 			get
 			{
-				return this.GetTable<BankInfo>();
+				return this.GetTable<ClientInfo>();
 			}
 		}
 	}
@@ -1351,164 +1362,6 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserMangement")]
-	public partial class UserMangement : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Uid;
-		
-		private string _Role;
-		
-		private string _LoginName;
-		
-		private string _Password;
-		
-		private bool _IsActive;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUidChanging(int value);
-    partial void OnUidChanged();
-    partial void OnRoleChanging(string value);
-    partial void OnRoleChanged();
-    partial void OnLoginNameChanging(string value);
-    partial void OnLoginNameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnIsActiveChanging(bool value);
-    partial void OnIsActiveChanged();
-    #endregion
-		
-		public UserMangement()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Uid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Uid
-		{
-			get
-			{
-				return this._Uid;
-			}
-			set
-			{
-				if ((this._Uid != value))
-				{
-					this.OnUidChanging(value);
-					this.SendPropertyChanging();
-					this._Uid = value;
-					this.SendPropertyChanged("Uid");
-					this.OnUidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="NVarChar(20)")]
-		public string Role
-		{
-			get
-			{
-				return this._Role;
-			}
-			set
-			{
-				if ((this._Role != value))
-				{
-					this.OnRoleChanging(value);
-					this.SendPropertyChanging();
-					this._Role = value;
-					this.SendPropertyChanged("Role");
-					this.OnRoleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginName", DbType="NVarChar(200)")]
-		public string LoginName
-		{
-			get
-			{
-				return this._LoginName;
-			}
-			set
-			{
-				if ((this._LoginName != value))
-				{
-					this.OnLoginNameChanging(value);
-					this.SendPropertyChanging();
-					this._LoginName = value;
-					this.SendPropertyChanged("LoginName");
-					this.OnLoginNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit NOT NULL")]
-		public bool IsActive
-		{
-			get
-			{
-				return this._IsActive;
-			}
-			set
-			{
-				if ((this._IsActive != value))
-				{
-					this.OnIsActiveChanging(value);
-					this.SendPropertyChanging();
-					this._IsActive = value;
-					this.SendPropertyChanged("IsActive");
-					this.OnIsActiveChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BankInfo")]
 	public partial class BankInfo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1892,6 +1745,322 @@ namespace DAL
 						this._BusinessGUID = default(string);
 					}
 					this.SendPropertyChanged("PersonalInformation3");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserMangement")]
+	public partial class UserMangement : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Uid;
+		
+		private string _Role;
+		
+		private string _LoginName;
+		
+		private string _Password;
+		
+		private bool _IsActive;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUidChanging(int value);
+    partial void OnUidChanged();
+    partial void OnRoleChanging(string value);
+    partial void OnRoleChanged();
+    partial void OnLoginNameChanging(string value);
+    partial void OnLoginNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnIsActiveChanging(bool value);
+    partial void OnIsActiveChanged();
+    #endregion
+		
+		public UserMangement()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Uid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Uid
+		{
+			get
+			{
+				return this._Uid;
+			}
+			set
+			{
+				if ((this._Uid != value))
+				{
+					this.OnUidChanging(value);
+					this.SendPropertyChanging();
+					this._Uid = value;
+					this.SendPropertyChanged("Uid");
+					this.OnUidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="NVarChar(20)")]
+		public string Role
+		{
+			get
+			{
+				return this._Role;
+			}
+			set
+			{
+				if ((this._Role != value))
+				{
+					this.OnRoleChanging(value);
+					this.SendPropertyChanging();
+					this._Role = value;
+					this.SendPropertyChanged("Role");
+					this.OnRoleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginName", DbType="NVarChar(200)")]
+		public string LoginName
+		{
+			get
+			{
+				return this._LoginName;
+			}
+			set
+			{
+				if ((this._LoginName != value))
+				{
+					this.OnLoginNameChanging(value);
+					this.SendPropertyChanging();
+					this._LoginName = value;
+					this.SendPropertyChanged("LoginName");
+					this.OnLoginNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit NOT NULL")]
+		public bool IsActive
+		{
+			get
+			{
+				return this._IsActive;
+			}
+			set
+			{
+				if ((this._IsActive != value))
+				{
+					this.OnIsActiveChanging(value);
+					this.SendPropertyChanging();
+					this._IsActive = value;
+					this.SendPropertyChanged("IsActive");
+					this.OnIsActiveChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ClientInfo")]
+	public partial class ClientInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _BPAN;
+		
+		private string _BusinessType;
+		
+		private string _BusinessName;
+		
+		private string _DateOfEstablishment;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnBPANChanging(string value);
+    partial void OnBPANChanged();
+    partial void OnBusinessTypeChanging(string value);
+    partial void OnBusinessTypeChanged();
+    partial void OnBusinessNameChanging(string value);
+    partial void OnBusinessNameChanged();
+    partial void OnDateOfEstablishmentChanging(string value);
+    partial void OnDateOfEstablishmentChanged();
+    #endregion
+		
+		public ClientInfo()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BPAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string BPAN
+		{
+			get
+			{
+				return this._BPAN;
+			}
+			set
+			{
+				if ((this._BPAN != value))
+				{
+					this.OnBPANChanging(value);
+					this.SendPropertyChanging();
+					this._BPAN = value;
+					this.SendPropertyChanged("BPAN");
+					this.OnBPANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusinessType
+		{
+			get
+			{
+				return this._BusinessType;
+			}
+			set
+			{
+				if ((this._BusinessType != value))
+				{
+					this.OnBusinessTypeChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessType = value;
+					this.SendPropertyChanged("BusinessType");
+					this.OnBusinessTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string BusinessName
+		{
+			get
+			{
+				return this._BusinessName;
+			}
+			set
+			{
+				if ((this._BusinessName != value))
+				{
+					this.OnBusinessNameChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessName = value;
+					this.SendPropertyChanged("BusinessName");
+					this.OnBusinessNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfEstablishment", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string DateOfEstablishment
+		{
+			get
+			{
+				return this._DateOfEstablishment;
+			}
+			set
+			{
+				if ((this._DateOfEstablishment != value))
+				{
+					this.OnDateOfEstablishmentChanging(value);
+					this.SendPropertyChanging();
+					this._DateOfEstablishment = value;
+					this.SendPropertyChanged("DateOfEstablishment");
+					this.OnDateOfEstablishmentChanged();
 				}
 			}
 		}

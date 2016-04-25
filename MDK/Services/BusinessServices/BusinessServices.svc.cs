@@ -36,6 +36,11 @@ namespace Services.BusinessServices
         OtherInfoBAL otherInfoBAL = null;
 
         Random RandomPIN = new Random();
+
+        ClientInfoBAL clientInfoBAL = null;
+        TClientInfo tClientInfoData = null;
+
+
         public BusinessServices()
         {
             _serializer = new JavaScriptSerializer();
@@ -54,7 +59,10 @@ namespace Services.BusinessServices
 
             tOtherInfoData = new TOtherInfoData();
             otherInfoBAL = new OtherInfoBAL();
-
+             
+            tClientInfoData = new TClientInfo();
+            clientInfoBAL = new ClientInfoBAL();
+ 
         }
 
 
@@ -576,5 +584,11 @@ namespace Services.BusinessServices
            return File.OpenRead(fullpath);
            // return fullpath;
         }
+
+       public TClientInfo enrollClient(string data)
+       {
+           var clientInfo = _serializer.Deserialize<ClientInfoModel>(data);
+           return clientInfoBAL.enrollClient(clientInfo);
+       }
     }
 }

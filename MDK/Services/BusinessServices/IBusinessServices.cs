@@ -128,6 +128,15 @@ namespace Services.BusinessServices
         Stream downloadFile(string filePath);
         
 
+        
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+             RequestFormat = WebMessageFormat.Json,
+             BodyStyle = WebMessageBodyStyle.Wrapped,
+             Method = "POST")]
+        TClientInfo enrollClient(string data);
+
+        
 
     }
 }

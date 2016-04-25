@@ -40,14 +40,14 @@
         <classShapeMoniker Id="9adfd5b1-f9d2-4159-9f2e-3c51f6ae5503" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 4); (1.75 : 2.13544840494792); (3.5 : 2.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.65625 : 4); (2.65625 : 2.67714680989583); (3.5 : 2.67714680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_OtherInfo" />
       <nodes>
         <classShapeMoniker Id="b8bc0d8d-289d-4d1b-a61d-5cd06bf19e16" />
         <classShapeMoniker Id="55f94c2a-901e-4543-96bc-b63f7f57ad92" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.2812525 : 4); (2.2812525 : 2.60942510742187); (3.5 : 2.60942510742187)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.6875025 : 4); (2.6875025 : 2.88027430989583); (3.5 : 2.88027430989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/MDKDBMLDataContext/PersonalInformation/PersonalInformation_OtherInfo1" />
       <nodes>
         <classShapeMoniker Id="b8bc0d8d-289d-4d1b-a61d-5cd06bf19e16" />
@@ -92,6 +92,12 @@
       <DataClassMoniker Name="/MDKDBMLDataContext/UserMangement" />
       <nestedChildShapes>
         <elementListCompartment Id="c3c044e2-e92e-489a-872b-e848338c3275" absoluteBounds="7.015, 2.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3ae5e736-3e83-4b34-a9af-65bcc6db4dc5" absoluteBounds="0.5, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/MDKDBMLDataContext/ClientInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0749c60f-b339-4211-b75c-5610a86f3894" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

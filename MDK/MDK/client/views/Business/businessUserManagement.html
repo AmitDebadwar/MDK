@@ -24,7 +24,7 @@
 
                             <div class="row">
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Business Type</label>
                                         <select
@@ -38,7 +38,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Business Name</label>
                                         <input type="text" class="form-control" id="Email7"
@@ -50,7 +50,7 @@
 
 
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Business PAN</label><small class="formHelpText">&nbsp&nbsp&nbsp(Companyni's PAN NO)</small>
 
@@ -60,14 +60,29 @@
                                             title="This is the Company's or grouped PAN number. We use this PAN number to open an account with MDK TAX Consultant." data-placement="left"></span>
                                         <input type="text" class="form-control" id="lkdf"
                                             placeholder="e.g. ANCPD87656N"
-                                            ng-model="dfjldkjf"
+                                            ng-model="businessPAN"
                                             validation-field-required="true">
                                     </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="doe">Date of Establishment</label>
+                                                <input type="date" class="form-control" id="doe" ng-model="DateOfEstablishment">
+                                            </div>
+                                        </div>
 
+                                    <div class="row">
+                                    <div class="col-md-12">
+                                    <div class="form-group pull-right">
+                                        <a href="" class="btn btn-sm mdkBTN"  ng-click="enrollClient()">Enroll Client</a>
+                                    </div>
                                 </div>
-
+                                         
                             </div>
-                            <hr class="personalInfoHR">
+                                                      <hr class="personalInfoHR">                
+                            </div>
+                                
+                            
 
                             <div class="row" ng-repeat="owner in ownersList" ng-show="ownersList.length>0" style="margin-bottom: 20px;">
 
@@ -80,6 +95,12 @@
                                                 <label for="personLbl" style="color: orange; font-size: larger;">Person {{$index + 1}}</label>
                                             </div>
                                         </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+
+                                                <a href="" class="btn btn-sm mdkBTN" >Remove Person {{$index + 1}}</a>   </div>
+                                        </div>
+
                                     </div>
 
 
@@ -159,64 +180,7 @@
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <hr class="personalInfoHR" />
-                                </div>
-                            </div>
-
-                            <div class="row" ng-show="selectedBusinessType && !(selectedBusinessType == 'PROP') && ownersList.length<7">
-                                <div class="col-md-12">
-                                    <div class="form-group pull-right">
-                                        <a href="" class="btn btn-sm mdkBTN" ng-bind="addMoreOwnerText" ng-click="addMorePartner()"></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row" ng-show="ownersList.length==7">
-                                <div class="col-md-12 text-center">
-                                    <small class="formHelpText">You can not add more than seven partners or directors.</small>
-                                </div>
-                            </div>
-
-
-
-                            <div class="row">
-                                <div class="col-md-4 pull-right">
-                                    <div class="form-group">
-                                        <input type="button" class="btn btn-primary form-control" value="Save Personal Info" ng-click="savePersonalInfo()" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 pull-right">
-                                    <div class="form-group">
-                                        <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <p class="form-control-static"
-                                            ng-class="{MDKSuccess:isBusinessInfoSaved,MDKError:!isBusinessInfoSaved}"
-                                            data-ng-bind="personalRecordSavedMSG">
-                                            Record saved successfully! 
-                                        </p>
-                                        <span ng-show="isBusinessInfoSaved">&nbsp;with&nbsp;<b style="color: blue;" ng-bind="businessID">JKKH45321221</b>&nbsp;Business ID. </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <div class="row">
+                                        <div class="row">
         <div class="col-md-4">
             <div class="panel panel-info">
                 <div class="panel-heading clearfix">
@@ -240,14 +204,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">Bank Name</label>
-                                        <input type="text" class="form-control" id="Text1" placeholder="e.g. ICICI bank" ng-model="bankName">
+                                        <input type="text" class="form-control" id="Text15" placeholder="e.g. ICICI bank" ng-model="bankName">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">Branch</label>
-                                        <input type="text" class="form-control" id="Text2" placeholder="e.g. Shivaji nagar, Pune." ng-model="bankBranch">
+                                        <input type="text" class="form-control" id="Text16" placeholder="e.g. Shivaji nagar, Pune." ng-model="bankBranch">
                                     </div>
                                 </div>
                             </div>
@@ -257,7 +221,7 @@
                                     <div class="form-group">
 
                                         <label for="firstName">Account Number</label>
-                                        <input type="text" class="form-control" id="Text3" placeholder="e.g. ICICI bank" ng-model="bankAccountNumber">
+                                        <input type="text" class="form-control" id="Text17" placeholder="e.g. ICICI bank" ng-model="bankAccountNumber">
                                     </div>
                                 </div>
                             </div>
@@ -267,10 +231,10 @@
                                     <div class="form-group">
                                         <label for="firstName">IFSC Code</label>&nbsp
                                         <span class="glyphicon glyphicon-info-sign info-question pull-right" aria-hidden="true"
-                                            id="ifscInfo"
+                                            id="Span1"
                                             data-toggle="tooltip"
                                             title="IFSC code is given on your bank's passbook." data-placement="top"></span>
-                                        <input type="text" class="form-control" id="Text4"
+                                        <input type="text" class="form-control" id="Text18"
                                             placeholder="e.g. ICICI9860057"
                                             ng-model="bankIFSCCode">
                                     </div>
@@ -280,7 +244,7 @@
                                     <div class="form-group">
                                         <label for="firstName">MICR Code</label>&nbsp
                                         <span
-                                            id="micrInfo"
+                                            id="Span2"
                                             class="glyphicon glyphicon-question-sign info-question pull-right"
                                             aria-hidden="true"
                                             data-toggle="tooltip"
@@ -288,7 +252,7 @@
                                             data-content="Magnetic Ink Character Recognition Code (MICR Code) is a character-recognition technology used mainly by the banking industry to ease the processing and clearance of cheques and other documents."
                                             data-placement="top"
                                             tooltip-append-to-body="true"></span>
-                                        <input type="text" class="form-control" id="Text5" placeholder="e.g. MICR77876" ng-model="bankMICRCode">
+                                        <input type="text" class="form-control" id="Text19" placeholder="e.g. MICR77876" ng-model="bankMICRCode">
                                     </div>
                                 </div>
                             </div>
@@ -349,13 +313,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">PAN</label>
-                                        <input type="text" class="form-control" id="Text6" placeholder="e.g. ANCPD5684N" ng-model="PAN">
+                                        <input type="text" class="form-control" id="Text20" placeholder="e.g. ANCPD5684N" ng-model="PAN">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">TAN</label>
-                                        <input type="text" class="form-control" id="Text7" placeholder="e.g. TANB99887" ng-model="TAN">
+                                        <input type="text" class="form-control" id="Text21" placeholder="e.g. TANB99887" ng-model="TAN">
                                     </div>
                                 </div>
                             </div>
@@ -365,13 +329,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">VAT</label>
-                                        <input type="text" class="form-control" id="Text8" placeholder="e.g. VATB99887" ng-model="VAT">
+                                        <input type="text" class="form-control" id="Text22" placeholder="e.g. VATB99887" ng-model="VAT">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">CST</label>
-                                        <input type="text" class="form-control" id="Text9" placeholder="e.g. CST786786" ng-model="CST">
+                                        <input type="text" class="form-control" id="Text23" placeholder="e.g. CST786786" ng-model="CST">
                                     </div>
                                 </div>
                             </div>
@@ -381,13 +345,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">PTEC</label>
-                                        <input type="text" class="form-control" id="Text10" placeholder="e.g. PTRCB99887" ng-model="PTEC">
+                                        <input type="text" class="form-control" id="Text24" placeholder="e.g. PTRCB99887" ng-model="PTEC">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName">PTRC</label>
-                                        <input type="text" class="form-control" id="Text11" placeholder="e.g. PTEC99887" ng-model="PTRC">
+                                        <input type="text" class="form-control" id="Text25" placeholder="e.g. PTEC99887" ng-model="PTRC">
                                     </div>
                                 </div>
                             </div>
@@ -450,7 +414,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="firstName">Service TAX Number</label>
-                                        <input type="text" class="form-control" id="Text12" placeholder="e.g. STAX876765" ng-model="serviceTaxNumber">
+                                        <input type="text" class="form-control" id="Text26" placeholder="e.g. STAX876765" ng-model="serviceTaxNumber">
                                     </div>
                                 </div>
                             </div>
@@ -459,7 +423,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="firstName">Excise Number</label>
-                                        <input type="text" class="form-control" id="Text13" placeholder="e.g. EXC111222" ng-model="exciseNumber">
+                                        <input type="text" class="form-control" id="Text28" placeholder="e.g. EXC111222" ng-model="exciseNumber">
                                     </div>
                                 </div>
                             </div>
@@ -469,7 +433,7 @@
 
                                     <div class="form-group">
                                         <label for="firstName">PFESI Number</label>
-                                        <input type="text" class="form-control" id="Text14" placeholder="e.g. PF89767898" ng-model="PFESINumber">
+                                        <input type="text" class="form-control" id="Text29" placeholder="e.g. PF89767898" ng-model="PFESINumber">
                                     </div>
                                 </div>
                             </div>
@@ -506,6 +470,64 @@
                 </div>
             </div>
         </div>
+    </div>
+
+                                    </div>
+                                    <hr class="personalInfoHR" />
+                                </div>
+                            </div>
+
+                            <div class="row" ng-show="selectedBusinessType && !(selectedBusinessType == 'PROP') && ownersList.length<7">
+                                <div class="col-md-12">
+                                    <div class="form-group pull-right">
+                                        <a href="" class="btn btn-sm mdkBTN" ng-bind="addMoreOwnerText" ng-click="addMorePartner()"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" ng-show="ownersList.length==7">
+                                <div class="col-md-12 text-center">
+                                    <small class="formHelpText">You can not add more than seven partners or directors.</small>
+                                </div>
+                            </div>
+
+
+                          
+
+
+                            <div class="row">
+                                <div class="col-md-4 pull-right">
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-primary form-control" value="Save Personal Info" ng-click="savePersonalInfo()" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 pull-right">
+                                    <div class="form-group">
+                                        <input type="button" class="btn btn-default form-control" value="Reset" ng-click="clearPersonalInfo()" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <p class="form-control-static"
+                                            ng-class="{MDKSuccess:isBusinessInfoSaved,MDKError:!isBusinessInfoSaved}"
+                                            data-ng-bind="personalRecordSavedMSG">
+                                            Record saved successfully! 
+                                        </p>
+                                        <span ng-show="isBusinessInfoSaved">&nbsp;with&nbsp;<b style="color: blue;" ng-bind="businessID">JKKH45321221</b>&nbsp;Business ID. </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 </div>

@@ -26,6 +26,34 @@
 
     $scope.ownersList = [];
 
+    $scope.enrollClient = function () {
+
+        var clientInfo = {
+            BusinessType: $scope.selectedBusinessType,
+            BusinessName: $scope.businessName,
+            BusinessPAN: $scope.businessPAN,
+            DateOfEstablishment: $scope.DateOfEstablishment
+        };
+
+        $rootScope.loading = apiService.enrollClient(clientInfo).then(function (data) {
+
+            if (data.data.createClientResult.SuccessCode === "RECORD_SAVED_SUCCESSFULLY") {
+
+                $scope.isClientInfoSaved = true;
+                $scope.clientRecordSavedMSG = data.data.createClientResult.SuccessMessage;
+                $scope.businessPAN = data.data.createClientResult.tClientInfoData.BusinessPAN;
+            }
+            else {
+                $scope.isClientInfoSaved = false;
+                $scope.clientRecordSavedMSG = data.data.createClientResult.ErrorMessage;
+            }
+
+        }).catch(function (data) {
+            console.log(data);
+        });
+
+    }
+
     function OwnerModel(firstName, middleName, lastName) {
         this.firstName = firstName;
         this.middleName = middleName;
