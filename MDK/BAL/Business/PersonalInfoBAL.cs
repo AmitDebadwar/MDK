@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,41 +14,31 @@ namespace BAL.Business
     public class PersonalInfoBAL : IBal
     {
         PersonalInfoDAL personalInfoDAL = null;
-        PersonalInfoModel personalInfoModel = null;
+
         TPersonalInfoData tPersonalInfoData = null;
 
         public PersonalInfoBAL()
         {
             personalInfoDAL = new PersonalInfoDAL();
-            personalInfoModel = new PersonalInfoModel();
             tPersonalInfoData = new TPersonalInfoData();
         }
 
-        public TPersonalInfoData getAllBusinessLines()
+        public TClientInfo getAllClient()
         {
-            return personalInfoDAL.getAllBusinessLines();
+            return null;
         }
 
-        public TPersonalInfoData createBusinessUser(IModel data)
+        public TPersonalInfoData createBusinessUser(IEnumerable<PersonalInfoModel> data)
         {
             try
             {
-
-                personalInfoModel = (PersonalInfoModel)data;
-
-                personalInfoModel.BusinessGUID = RandomStringOfLength(4) + "-" + System.Guid.NewGuid().ToString().Substring(0, 8);
-                tPersonalInfoData = personalInfoDAL.createBusinessUser(personalInfoModel);
+                tPersonalInfoData = personalInfoDAL.createBusinessUser(data);
                 tPersonalInfoData.tPersonalInfoData = new PersonalInfoModel();
 
-                if (tPersonalInfoData.SuccessCode == ErrorCodes.RECORD_SAVED_SUCCESSFULLY)
-                {
-                    tPersonalInfoData.tPersonalInfoData.BusinessGUID = personalInfoModel.BusinessGUID;
-                    tPersonalInfoData.SuccessCode =SuccessCodes.RECORD_SAVED_SUCCESSFULLY;
-                    tPersonalInfoData.SuccessMessage =SuccessMessages.RECORD_SAVED_SUCCESSFULLY_MSG;
-                }
+                tPersonalInfoData.SuccessCode = SuccessCodes.RECORD_SAVED_SUCCESSFULLY;
+                tPersonalInfoData.SuccessMessage = SuccessMessages.RECORD_SAVED_SUCCESSFULLY_MSG;
 
                 return tPersonalInfoData;
-
             }
 
             catch (Exception exp)
@@ -59,13 +50,6 @@ namespace BAL.Business
 
         }
 
-        private string RandomStringOfLength(int length)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var random = new Random();
-            return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
     }
 
 

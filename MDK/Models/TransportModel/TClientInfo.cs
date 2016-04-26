@@ -8,6 +8,6 @@ namespace Models.TransportModel
 {
     public class TClientInfo : TransportData
     {
-     public ClientInfoModel clientInfo {get;set;}
+     public IEnumerable<ClientInfoModel> allClients {get;set;}
     }
 }

@@ -26,77 +26,79 @@ namespace DAL.Business
 
         public TBankData saveBankInformation(IModel model)
         {
-            try
-            {
-                bankModel = (BankModel)model;
+        //    try
+        //    {
+        //        bankModel = (BankModel)model;
 
-                bankEntity.BusinessGUID = bankModel.BusinessGUID;
-                bankEntity.BankName = bankModel.BankName;
-                bankEntity.Branch = bankModel.BankBranch;
-                bankEntity.AccountNo = bankModel.BankAccountNumber;
-                bankEntity.IFSC_CODE = bankModel.IFSCCode;
-                bankEntity.MICR_CODE = bankModel.MICRCode;
+                
+        //        bankEntity.BankName = bankModel.BankName;
+        //        bankEntity.Branch = bankModel.BankBranch;
+        //        bankEntity.AccountNo = bankModel.BankAccountNumber;
+        //        bankEntity.IFSC_CODE = bankModel.IFSCCode;
+        //        bankEntity.MICR_CODE = bankModel.MICRCode;
 
-                _dataContext.BankInfos.InsertOnSubmit(bankEntity);
-                _dataContext.SubmitChanges();
+        //        _dataContext.BankInfos.InsertOnSubmit(bankEntity);
+        //        _dataContext.SubmitChanges();
 
-                tbankData.SuccessCode = SuccessCodes.RECORD_SAVED_SUCCESSFULLY;
-                tbankData.SuccessMessage = SuccessMessages.RECORD_SAVED_SUCCESSFULLY_MSG;
+        //        tbankData.SuccessCode = SuccessCodes.RECORD_SAVED_SUCCESSFULLY;
+        //        tbankData.SuccessMessage = SuccessMessages.RECORD_SAVED_SUCCESSFULLY_MSG;
 
-                return tbankData;
-            }
+        //        return tbankData;
+        //    }
 
-            catch (Exception exp)
-            {
-                tbankData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
-                tbankData.ErrorMessage = exp.StackTrace;
-                return tbankData;
+        //    catch (Exception exp)
+        //    {
+        //        tbankData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
+        //        tbankData.ErrorMessage = exp.StackTrace;
+        //        return tbankData;
 
-            }
+        //    }
 
-
+            return null;
         }
 
         public TBankData getBankDetails(string businessGUID)
         { 
-            try
-            {
+            //try
+            //{
 
-                var bankData = _dataContext.BankInfos.FirstOrDefault(x => x.BusinessGUID == businessGUID);
+            //    var bankData = _dataContext.BankInfos.FirstOrDefault(x => x.BusinessGUID == businessGUID);
 
-                if (bankData != null)
-                {
+            //    if (bankData != null)
+            //    {
 
-                    tbankData.bankModel = new BankModel();
-                    tbankData.bankModel.BankName = bankData.BankName;
-                    tbankData.bankModel.BankBranch = bankData.Branch;
-                    tbankData.bankModel.BankAccountNumber = bankData.AccountNo;
-                    tbankData.bankModel.IFSCCode = bankData.IFSC_CODE;
-                    tbankData.bankModel.MICRCode = bankData.MICR_CODE;
-                    tbankData.bankModel.BusinessGUID = bankData.BusinessGUID;
+            //        tbankData.bankModel = new BankModel();
+            //        tbankData.bankModel.BankName = bankData.BankName;
+            //        tbankData.bankModel.BankBranch = bankData.Branch;
+            //        tbankData.bankModel.BankAccountNumber = bankData.AccountNo;
+            //        tbankData.bankModel.IFSCCode = bankData.IFSC_CODE;
+            //        tbankData.bankModel.MICRCode = bankData.MICR_CODE;
+            //        tbankData.bankModel.BusinessGUID = bankData.BusinessGUID;
 
-                    tbankData.SuccessCode = SuccessCodes.RECORD_RETRIEVED_SUCCESSFULLY;
+            //        tbankData.SuccessCode = SuccessCodes.RECORD_RETRIEVED_SUCCESSFULLY;
 
-                    return tbankData;
+            //        return tbankData;
 
-                }
-                else
-                {
-                    tbankData.SuccessCode = SuccessCodes.RECORD_NOT_FOUND;
-                    tbankData.SuccessMessage = SuccessMessages.RECORD_NOT_FOUND;
-                    tbankData.SuccessCode = businessGUID;
+            //    }
+            //    else
+            //    {
+            //        tbankData.SuccessCode = SuccessCodes.RECORD_NOT_FOUND;
+            //        tbankData.SuccessMessage = SuccessMessages.RECORD_NOT_FOUND;
+            //        tbankData.SuccessCode = businessGUID;
 
 
-                    return tbankData;
-                }
-            }
-            catch (Exception exp)
-            {
-                tbankData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
-                tbankData.ErrorMessage = exp.Message;
+            //        return tbankData;
+            //    }
+            //}
+            //catch (Exception exp)
+            //{
+            //    tbankData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
+            //    tbankData.ErrorMessage = exp.Message;
 
-                return tbankData;
-            }
+            //    return tbankData;
+            //}
+
+            return null;
          }
     }
 }

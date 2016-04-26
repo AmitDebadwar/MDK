@@ -26,67 +26,71 @@ namespace DAL.Business
         {
 
 
-            try
-            {
-                _model = (OtherInfoModel)model;
+            //try
+            //{
+            //    _model = (OtherInfoModel)model;
 
-                entity.BusinessGUID = _model.BusinessGUID;
-                entity.ServiceTaxNumber = _model.ServiceTaxNumber;
-                entity.PFESINumber = _model.PFESI_NO;
-                entity.ExciseNumber = _model.ExciseNumber;
+            //    entity.BusinessGUID = _model.BusinessGUID;
+            //    entity.ServiceTaxNumber = _model.ServiceTaxNumber;
+            //    entity.PFESINumber = _model.PFESI_NO;
+            //    entity.ExciseNumber = _model.ExciseNumber;
 
-                _dataContext.OtherInfos.InsertOnSubmit(entity);
-                _dataContext.SubmitChanges();
+            //    _dataContext.OtherInfos.InsertOnSubmit(entity);
+            //    _dataContext.SubmitChanges();
 
-                tOtherInfoData.SuccessCode = SuccessCodes.RECORD_SAVED_SUCCESSFULLY;
-                tOtherInfoData.SuccessMessage = SuccessMessages.RECORD_SAVED_SUCCESSFULLY_MSG;
+            //    tOtherInfoData.SuccessCode = SuccessCodes.RECORD_SAVED_SUCCESSFULLY;
+            //    tOtherInfoData.SuccessMessage = SuccessMessages.RECORD_SAVED_SUCCESSFULLY_MSG;
 
-                return tOtherInfoData;
-            }
+            //    return tOtherInfoData;
+            //}
 
-            catch (Exception exp)
-            {
-                tOtherInfoData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
-                tOtherInfoData.ErrorMessage = exp.StackTrace;
+            //catch (Exception exp)
+            //{
+            //    tOtherInfoData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
+            //    tOtherInfoData.ErrorMessage = exp.StackTrace;
 
-                return tOtherInfoData;
-            }
+            //    return tOtherInfoData;
+            //}
+
+            return null;
 
         }
 
         public TOtherInfoData getOtherDetails(string businessGUID)
         {
-            tOtherInfoData.otherInfoModel = new OtherInfoModel();
+            //tOtherInfoData.otherInfoModel = new OtherInfoModel();
 
-            var otherInfo = _dataContext.OtherInfos.FirstOrDefault(x => x.BusinessGUID == businessGUID);
-            try
-            {
-                if (otherInfo != null)
-                {
-                    tOtherInfoData.otherInfoModel.BusinessGUID = otherInfo.BusinessGUID;
-                    tOtherInfoData.otherInfoModel.ExciseNumber = otherInfo.ExciseNumber;
-                    tOtherInfoData.otherInfoModel.PFESI_NO = otherInfo.PFESINumber;
-                    tOtherInfoData.otherInfoModel.ServiceTaxNumber = otherInfo.ServiceTaxNumber;
+            //var otherInfo = _dataContext.OtherInfos.FirstOrDefault(x => x.BusinessGUID == businessGUID);
+            //try
+            //{
+            //    if (otherInfo != null)
+            //    {
+            //        tOtherInfoData.otherInfoModel.BusinessGUID = otherInfo.BusinessGUID;
+            //        tOtherInfoData.otherInfoModel.ExciseNumber = otherInfo.ExciseNumber;
+            //        tOtherInfoData.otherInfoModel.PFESI_NO = otherInfo.PFESINumber;
+            //        tOtherInfoData.otherInfoModel.ServiceTaxNumber = otherInfo.ServiceTaxNumber;
 
-                    tOtherInfoData.SuccessCode = SuccessCodes.RECORD_RETRIEVED_SUCCESSFULLY;
+            //        tOtherInfoData.SuccessCode = SuccessCodes.RECORD_RETRIEVED_SUCCESSFULLY;
 
-                    return tOtherInfoData;
-                }
-                else
-                {
-                    tOtherInfoData.SuccessCode = SuccessCodes.RECORD_NOT_FOUND;
-                    tOtherInfoData.SuccessMessage = SuccessMessages.RECORD_NOT_FOUND;
+            //        return tOtherInfoData;
+            //    }
+            //    else
+            //    {
+            //        tOtherInfoData.SuccessCode = SuccessCodes.RECORD_NOT_FOUND;
+            //        tOtherInfoData.SuccessMessage = SuccessMessages.RECORD_NOT_FOUND;
 
-                    return tOtherInfoData;
-                }
-            }
-            catch (Exception exp)
-            {
-                tOtherInfoData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
-                tOtherInfoData.ErrorMessage = exp.StackTrace;
+            //        return tOtherInfoData;
+            //    }
+            //}
+            //catch (Exception exp)
+            //{
+            //    tOtherInfoData.ErrorCode = ErrorCodes.DATA_ACCESS_ERROR;
+            //    tOtherInfoData.ErrorMessage = exp.StackTrace;
 
-                return tOtherInfoData;
-            }
+            //    return tOtherInfoData;
+            //}
+
+            return null;
          }
     }
 }

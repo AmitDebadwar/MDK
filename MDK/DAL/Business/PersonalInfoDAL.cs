@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,20 @@ namespace DAL.Business
         PersonalInfoModel personalInfoModel = null;
         MDKDBMLDataContext _dataContext = null;
         TPersonalInfoData tPersonalInfoData = null;
-        PersonalInformation personalInfoEntity = null;
+        PersonInfo personalInfoEntity = null;
+
+        TClientInfo clients = null;
+        ClientInfoModel clientModel = null;
 
         public PersonalInfoDAL()
         {
             personalInfoModel = new PersonalInfoModel();
             _dataContext = new MDKDBMLDataContext();
             tPersonalInfoData = new TPersonalInfoData();
-            personalInfoEntity = new PersonalInformation();
+            personalInfoEntity = new PersonInfo();
+
+            clients = new TClientInfo();
+            clientModel = new ClientInfoModel();
         }
 
         public Models.TransportModel.ITransport insertRecord(Models.IModel model)
@@ -48,67 +55,60 @@ namespace DAL.Business
 
 
 
-        public TPersonalInfoData getAllBusinessLines()
+        public TClientInfo getAllClient()
         {
             try
             {
-                var allLines = _dataContext.PersonalInformations;
 
-                var allRecords = allLines.Select(item => new PersonalInfoModel()
-                {
-                    Pid = item.Pid,
-                    FirstName = item.FirstName,
-                    BusinessAddress = item.Address,
-                    ContactNo = item.ContactNo,
-                    AlternateNumber=item.AlternateNo,
-                    DateOfBirth = item.DateOfBirth,
-                    EmailID = item.EmailID,
-                    LastName = item.LastName,
-                    MiddleName = item.MiddleName,
-                    BusinessGUID = item.BusinessGUID,
-                    BusinessName = item.BusinessName,
-                    BusinessType = item.BusinessType
+                clients.allClients = _dataContext.ClientInfos.Cast<ClientInfoModel>().ToList();
 
-                }).ToList();
+                var m = tPersonalInfoData;
 
-                tPersonalInfoData.SuccessCode = "DATA_ACCESS_SUCCESS";
-                tPersonalInfoData.allRecords = allRecords;
-                return tPersonalInfoData;
+               //
+               //  "DATA_ACCESS_SUCCESS";
+               
+               // return tPersonalInfoData;
             }
             catch (Exception exp)
             {
                 tPersonalInfoData.ErrorCode = "DATA_ACCESS_ERROR";
                 tPersonalInfoData.ErrorMessage = "getAllRecords: " + exp.InnerException.ToString();
-                return tPersonalInfoData;
+                 
             }
+            return null;
         }
 
-        public TPersonalInfoData createBusinessUser(IModel model)
+        public TPersonalInfoData createBusinessUser(IEnumerable<PersonalInfoModel> list)
         {
             try
             {
-                //tPersonalInfoData.tPersonalInfoData = new PersonalInfoModel();
-                personalInfoModel = (PersonalInfoModel)model;
+                var entityList = new List<PersonInfo>();
 
-                personalInfoEntity.FirstName = personalInfoModel.FirstName;
-                personalInfoEntity.LastName = personalInfoModel.LastName;
-                personalInfoEntity.MiddleName = personalInfoModel.MiddleName;
-                personalInfoEntity.Pid = 0;
-                personalInfoEntity.Address = personalInfoModel.BusinessAddress;
-                personalInfoEntity.ContactNo = personalInfoModel.ContactNo;
-                personalInfoEntity.EmailID = personalInfoModel.EmailID;
-                personalInfoEntity.DateOfBirth = personalInfoModel.DateOfBirth;
-                personalInfoEntity.BusinessGUID = personalInfoModel.BusinessGUID;
-                personalInfoEntity.BusinessName = personalInfoModel.BusinessName;
-                personalInfoEntity.BusinessType = personalInfoModel.BusinessType;
+                entityList.ForEach(item =>
+                {
+                    var model = new PersonInfo();
 
-                _dataContext.PersonalInformations.InsertOnSubmit(personalInfoEntity);
+                    model.FirstName = item.FirstName;
+                    model.MiddleName = item.MiddleName;
+                    model.LastName = item.LastName;
+                    model.ContactNo = item.ContactNo;
+                    model.AlternateNo = item.AlternateNo;
+                    model.EmailID = item.EmailID;
+                    model.DateOfBirth = item.DateOfBirth;
+                    model.Address = item.Address;
+                    model.BPAN = item.BPAN;
+
+                    entityList.Add(model);
+                });
+
+                _dataContext.PersonInfos.InsertAllOnSubmit(entityList);
                 _dataContext.SubmitChanges();
 
                 tPersonalInfoData.SuccessCode = SuccessCodes.RECORD_SAVED_SUCCESSFULLY;
+                tPersonalInfoData.SuccessMessage = SuccessMessages.RECORD_SAVED_SUCCESSFULLY_MSG;
 
                 return tPersonalInfoData;
- 
+
             }
 
             catch (Exception exp)
@@ -117,6 +117,8 @@ namespace DAL.Business
                 tPersonalInfoData.ErrorMessage = exp.Message;
                 return tPersonalInfoData;
             }
+
+
         }
     }
 }

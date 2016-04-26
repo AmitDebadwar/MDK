@@ -20,7 +20,7 @@ namespace Services.BusinessServices
     {
         JavaScriptSerializer _serializer = null;
 
-        PersonalInfoModel personalInfoModel = null;
+        IEnumerable<PersonalInfoModel> personalInfoList = null;
         PersonalInfoBAL personalInfoBAL = null;
         TPersonalInfoData tPersonalInfoData = null;
 
@@ -45,7 +45,7 @@ namespace Services.BusinessServices
         {
             _serializer = new JavaScriptSerializer();
 
-            personalInfoModel = new PersonalInfoModel();
+            personalInfoList = new List<PersonalInfoModel>();
             personalInfoBAL = new PersonalInfoBAL();
 
             tPersonalInfoData = new TPersonalInfoData();
@@ -66,33 +66,15 @@ namespace Services.BusinessServices
         }
 
 
-        public TPersonalInfoData getAllBusinessLines(string data)
-        {
-            try
-            {
-                tPersonalInfoData.allRecords = personalInfoBAL.getAllBusinessLines().allRecords;
-                return tPersonalInfoData;
-            }
-            catch (Exception exp)
-            {
-                tPersonalInfoData.ErrorCode = ErrorCodes.SERVICE_ERROR;
-                tPersonalInfoData.ErrorMessage = exp.InnerException.ToString();
-                return tPersonalInfoData;
-
-            }
-        }
-
+      
 
         public TPersonalInfoData createBusinessUser(string data)
         {
             try
             {
-
-                personalInfoModel = _serializer.Deserialize<PersonalInfoModel>(data);
-                tPersonalInfoData = personalInfoBAL.createBusinessUser(personalInfoModel);
-
+                personalInfoList = _serializer.Deserialize<List<PersonalInfoModel>>(data);
+                tPersonalInfoData = personalInfoBAL.createBusinessUser(personalInfoList);
                 return tPersonalInfoData;
-
             }
 
             catch (Exception exp)
@@ -452,8 +434,6 @@ namespace Services.BusinessServices
 
         public TFileData getDocumentsToDownload(string data)
         {
-
-
 
             string basePath = HttpContext.Current.Server.MapPath(".");
             string businessDataPath = basePath + "\\uploaded\\businessData\\";
