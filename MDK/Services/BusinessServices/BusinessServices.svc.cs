@@ -20,7 +20,7 @@ namespace Services.BusinessServices
     {
         JavaScriptSerializer _serializer = null;
 
-        IEnumerable<PersonalInfoModel> personalInfoList = null;
+        List<PersonalInfoModel> personalInfoList = null;
         PersonalInfoBAL personalInfoBAL = null;
         TPersonalInfoData tPersonalInfoData = null;
 

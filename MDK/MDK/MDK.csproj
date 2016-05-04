@@ -236,6 +236,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="db\schemaNdata\10.sql" />
     <Content Include="db\schemaNdata\11.sql" />
+    <Content Include="db\schemaNdata\12.sql" />
     <Content Include="db\schemaNdata\9.sql" />
     <Content Include="db\schemaNdata\11.sql" />
     <Content Include="Images\accent.png" />

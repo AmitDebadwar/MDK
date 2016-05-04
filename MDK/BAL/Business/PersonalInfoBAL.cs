@@ -28,7 +28,7 @@ namespace BAL.Business
             return null;
         }
 
-        public TPersonalInfoData createBusinessPerson(IEnumerable<PersonalInfoModel> data)
+        public TPersonalInfoData createBusinessPerson(List<PersonalInfoModel> data)
         {
             try
             {

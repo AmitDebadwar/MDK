@@ -78,13 +78,13 @@ namespace DAL.Business
             return null;
         }
 
-        public TPersonalInfoData createBusinessPerson(IEnumerable<PersonalInfoModel> list)
+        public TPersonalInfoData createBusinessPerson(List<PersonalInfoModel> list)
         {
             try
             {
                 var entityList = new List<PersonInfo>();
 
-                entityList.ForEach(item =>
+                list.ForEach(item =>
                 {
                     var model = new PersonInfo();
 
