@@ -159,7 +159,9 @@
         }).catch();
 
     };
-
+    $scope.removePerson = function (index) {
+        $scope.ownersList.splice(index, 1);
+    }
     $scope.saveITInfo = function () {
 
         var ITInfo = {
