@@ -22,6 +22,7 @@ namespace DAL.Business
             entity = new ClientInfo();
             tClientInfoData = new TClientInfo();
         }
+        
         public TClientInfo enrollClient(IModel model)
         {
 
@@ -30,10 +31,13 @@ namespace DAL.Business
             {
                 _model = (ClientInfoModel)model;
 
-                entity.BPAN = _model.BusinessPAN;
+                entity.BPAN = _model.BPAN;
                 entity.BusinessName = _model.BusinessName;
                 entity.BusinessType = _model.BusinessType;
                 entity.DateOfEstablishment = _model.DateOfEstablishment;
+                entity.BusinessContactNo = _model.BusinessContactNo;
+                entity.BusinessEmailId = _model.BusinessEmailId;
+
 
                 _dataContext.ClientInfos.InsertOnSubmit(entity);
                 _dataContext.SubmitChanges();
@@ -54,6 +58,8 @@ namespace DAL.Business
             }
 
         }
+
+
 
         
     }

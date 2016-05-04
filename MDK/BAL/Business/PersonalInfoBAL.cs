@@ -28,11 +28,11 @@ namespace BAL.Business
             return null;
         }
 
-        public TPersonalInfoData createBusinessUser(IEnumerable<PersonalInfoModel> data)
+        public TPersonalInfoData createBusinessPerson(IEnumerable<PersonalInfoModel> data)
         {
             try
             {
-                tPersonalInfoData = personalInfoDAL.createBusinessUser(data);
+                tPersonalInfoData = personalInfoDAL.createBusinessPerson(data);
                 tPersonalInfoData.tPersonalInfoData = new PersonalInfoModel();
 
                 tPersonalInfoData.SuccessCode = SuccessCodes.RECORD_SAVED_SUCCESSFULLY;

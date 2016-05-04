@@ -10,7 +10,10 @@ namespace Models
     {
         public string BusinessType { get; set; }
         public string BusinessName { get; set; }
-        public string BusinessPAN { get; set; }
+        public string BPAN { get; set; }
         public string DateOfEstablishment { get; set; }
+        public string BusinessContactNo { get; set; }
+        public string BusinessEmailId { get; set; }
+
     }
 }

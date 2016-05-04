@@ -20,8 +20,8 @@ angular.module("MDKApp")
             return self.__post(serverName + port + BusinessServices + "enrollClient", { "data": angular.toJson(data) });
         };
 
-        self.getAllBusinessLines = function () {
-            return self.__post(serverName + port + BusinessServices + "getAllBusinessLines", { "data": "" });
+        self.getAllPersonsInfo = function () {
+            return self.__post(serverName + port + BusinessServices + "getAllPersonsInfo", { "data": "" });
 
         }
 

@@ -78,7 +78,7 @@ namespace DAL.Business
             return null;
         }
 
-        public TPersonalInfoData createBusinessUser(IEnumerable<PersonalInfoModel> list)
+        public TPersonalInfoData createBusinessPerson(IEnumerable<PersonalInfoModel> list)
         {
             try
             {

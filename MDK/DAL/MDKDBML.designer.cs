@@ -30,27 +30,27 @@ namespace DAL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertBankInfo(BankInfo instance);
-    partial void UpdateBankInfo(BankInfo instance);
-    partial void DeleteBankInfo(BankInfo instance);
-    partial void InsertClientInfo(ClientInfo instance);
-    partial void UpdateClientInfo(ClientInfo instance);
-    partial void DeleteClientInfo(ClientInfo instance);
-    partial void InsertITInfo(ITInfo instance);
-    partial void UpdateITInfo(ITInfo instance);
-    partial void DeleteITInfo(ITInfo instance);
-    partial void InsertOtherInfo(OtherInfo instance);
-    partial void UpdateOtherInfo(OtherInfo instance);
-    partial void DeleteOtherInfo(OtherInfo instance);
     partial void InsertPersonInfo(PersonInfo instance);
     partial void UpdatePersonInfo(PersonInfo instance);
     partial void DeletePersonInfo(PersonInfo instance);
+    partial void InsertBankInfo(BankInfo instance);
+    partial void UpdateBankInfo(BankInfo instance);
+    partial void DeleteBankInfo(BankInfo instance);
+    partial void InsertITInfo(ITInfo instance);
+    partial void UpdateITInfo(ITInfo instance);
+    partial void DeleteITInfo(ITInfo instance);
     partial void InsertRoleMangement(RoleMangement instance);
     partial void UpdateRoleMangement(RoleMangement instance);
     partial void DeleteRoleMangement(RoleMangement instance);
     partial void InsertUserMangement(UserMangement instance);
     partial void UpdateUserMangement(UserMangement instance);
     partial void DeleteUserMangement(UserMangement instance);
+    partial void InsertOtherInfo(OtherInfo instance);
+    partial void UpdateOtherInfo(OtherInfo instance);
+    partial void DeleteOtherInfo(OtherInfo instance);
+    partial void InsertClientInfo(ClientInfo instance);
+    partial void UpdateClientInfo(ClientInfo instance);
+    partial void DeleteClientInfo(ClientInfo instance);
     #endregion
 		
 		public MDKDBMLDataContext(string connection) : 
@@ -77,6 +77,14 @@ namespace DAL
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<PersonInfo> PersonInfos
+		{
+			get
+			{
+				return this.GetTable<PersonInfo>();
+			}
+		}
+		
 		public System.Data.Linq.Table<BankInfo> BankInfos
 		{
 			get
@@ -85,35 +93,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<ClientInfo> ClientInfos
-		{
-			get
-			{
-				return this.GetTable<ClientInfo>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ITInfo> ITInfos
 		{
 			get
 			{
 				return this.GetTable<ITInfo>();
-			}
-		}
-		
-		public System.Data.Linq.Table<OtherInfo> OtherInfos
-		{
-			get
-			{
-				return this.GetTable<OtherInfo>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PersonInfo> PersonInfos
-		{
-			get
-			{
-				return this.GetTable<PersonInfo>();
 			}
 		}
 		
@@ -132,991 +116,20 @@ namespace DAL
 				return this.GetTable<UserMangement>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BankInfo")]
-	public partial class BankInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _BankName;
-		
-		private string _Branch;
-		
-		private string _AccountNo;
-		
-		private string _IfscCode;
-		
-		private string _MicrCode;
-		
-		private string _BPAN;
-		
-		private EntityRef<ClientInfo> _ClientInfo;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnBankNameChanging(string value);
-    partial void OnBankNameChanged();
-    partial void OnBranchChanging(string value);
-    partial void OnBranchChanged();
-    partial void OnAccountNoChanging(string value);
-    partial void OnAccountNoChanged();
-    partial void OnIfscCodeChanging(string value);
-    partial void OnIfscCodeChanged();
-    partial void OnMicrCodeChanging(string value);
-    partial void OnMicrCodeChanged();
-    partial void OnBPANChanging(string value);
-    partial void OnBPANChanged();
-    #endregion
-		
-		public BankInfo()
-		{
-			this._ClientInfo = default(EntityRef<ClientInfo>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		public System.Data.Linq.Table<OtherInfo> OtherInfos
 		{
 			get
 			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
+				return this.GetTable<OtherInfo>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BankName", DbType="NVarChar(100)")]
-		public string BankName
+		public System.Data.Linq.Table<ClientInfo> ClientInfos
 		{
 			get
 			{
-				return this._BankName;
-			}
-			set
-			{
-				if ((this._BankName != value))
-				{
-					this.OnBankNameChanging(value);
-					this.SendPropertyChanging();
-					this._BankName = value;
-					this.SendPropertyChanged("BankName");
-					this.OnBankNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Branch", DbType="NVarChar(100)")]
-		public string Branch
-		{
-			get
-			{
-				return this._Branch;
-			}
-			set
-			{
-				if ((this._Branch != value))
-				{
-					this.OnBranchChanging(value);
-					this.SendPropertyChanging();
-					this._Branch = value;
-					this.SendPropertyChanged("Branch");
-					this.OnBranchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNo", DbType="NVarChar(50)")]
-		public string AccountNo
-		{
-			get
-			{
-				return this._AccountNo;
-			}
-			set
-			{
-				if ((this._AccountNo != value))
-				{
-					this.OnAccountNoChanging(value);
-					this.SendPropertyChanging();
-					this._AccountNo = value;
-					this.SendPropertyChanged("AccountNo");
-					this.OnAccountNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IfscCode", DbType="NVarChar(50)")]
-		public string IfscCode
-		{
-			get
-			{
-				return this._IfscCode;
-			}
-			set
-			{
-				if ((this._IfscCode != value))
-				{
-					this.OnIfscCodeChanging(value);
-					this.SendPropertyChanging();
-					this._IfscCode = value;
-					this.SendPropertyChanged("IfscCode");
-					this.OnIfscCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MicrCode", DbType="NVarChar(50)")]
-		public string MicrCode
-		{
-			get
-			{
-				return this._MicrCode;
-			}
-			set
-			{
-				if ((this._MicrCode != value))
-				{
-					this.OnMicrCodeChanging(value);
-					this.SendPropertyChanging();
-					this._MicrCode = value;
-					this.SendPropertyChanged("MicrCode");
-					this.OnMicrCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BPAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BPAN
-		{
-			get
-			{
-				return this._BPAN;
-			}
-			set
-			{
-				if ((this._BPAN != value))
-				{
-					if (this._ClientInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBPANChanging(value);
-					this.SendPropertyChanging();
-					this._BPAN = value;
-					this.SendPropertyChanged("BPAN");
-					this.OnBPANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_BankInfo", Storage="_ClientInfo", ThisKey="BPAN", OtherKey="BPAN", IsForeignKey=true)]
-		public ClientInfo ClientInfo
-		{
-			get
-			{
-				return this._ClientInfo.Entity;
-			}
-			set
-			{
-				ClientInfo previousValue = this._ClientInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._ClientInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ClientInfo.Entity = null;
-						previousValue.BankInfos.Remove(this);
-					}
-					this._ClientInfo.Entity = value;
-					if ((value != null))
-					{
-						value.BankInfos.Add(this);
-						this._BPAN = value.BPAN;
-					}
-					else
-					{
-						this._BPAN = default(string);
-					}
-					this.SendPropertyChanged("ClientInfo");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ClientInfo")]
-	public partial class ClientInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _BPAN;
-		
-		private string _BusinessType;
-		
-		private string _BusinessName;
-		
-		private string _DateOfEstablishment;
-		
-		private EntitySet<BankInfo> _BankInfos;
-		
-		private EntitySet<ITInfo> _ITInfos;
-		
-		private EntitySet<OtherInfo> _OtherInfos;
-		
-		private EntitySet<PersonInfo> _PersonInfos;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnBPANChanging(string value);
-    partial void OnBPANChanged();
-    partial void OnBusinessTypeChanging(string value);
-    partial void OnBusinessTypeChanged();
-    partial void OnBusinessNameChanging(string value);
-    partial void OnBusinessNameChanged();
-    partial void OnDateOfEstablishmentChanging(string value);
-    partial void OnDateOfEstablishmentChanged();
-    #endregion
-		
-		public ClientInfo()
-		{
-			this._BankInfos = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos), new Action<BankInfo>(this.detach_BankInfos));
-			this._ITInfos = new EntitySet<ITInfo>(new Action<ITInfo>(this.attach_ITInfos), new Action<ITInfo>(this.detach_ITInfos));
-			this._OtherInfos = new EntitySet<OtherInfo>(new Action<OtherInfo>(this.attach_OtherInfos), new Action<OtherInfo>(this.detach_OtherInfos));
-			this._PersonInfos = new EntitySet<PersonInfo>(new Action<PersonInfo>(this.attach_PersonInfos), new Action<PersonInfo>(this.detach_PersonInfos));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BPAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BPAN
-		{
-			get
-			{
-				return this._BPAN;
-			}
-			set
-			{
-				if ((this._BPAN != value))
-				{
-					this.OnBPANChanging(value);
-					this.SendPropertyChanging();
-					this._BPAN = value;
-					this.SendPropertyChanged("BPAN");
-					this.OnBPANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BusinessType
-		{
-			get
-			{
-				return this._BusinessType;
-			}
-			set
-			{
-				if ((this._BusinessType != value))
-				{
-					this.OnBusinessTypeChanging(value);
-					this.SendPropertyChanging();
-					this._BusinessType = value;
-					this.SendPropertyChanged("BusinessType");
-					this.OnBusinessTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string BusinessName
-		{
-			get
-			{
-				return this._BusinessName;
-			}
-			set
-			{
-				if ((this._BusinessName != value))
-				{
-					this.OnBusinessNameChanging(value);
-					this.SendPropertyChanging();
-					this._BusinessName = value;
-					this.SendPropertyChanged("BusinessName");
-					this.OnBusinessNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfEstablishment", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string DateOfEstablishment
-		{
-			get
-			{
-				return this._DateOfEstablishment;
-			}
-			set
-			{
-				if ((this._DateOfEstablishment != value))
-				{
-					this.OnDateOfEstablishmentChanging(value);
-					this.SendPropertyChanging();
-					this._DateOfEstablishment = value;
-					this.SendPropertyChanged("DateOfEstablishment");
-					this.OnDateOfEstablishmentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_BankInfo", Storage="_BankInfos", ThisKey="BPAN", OtherKey="BPAN")]
-		public EntitySet<BankInfo> BankInfos
-		{
-			get
-			{
-				return this._BankInfos;
-			}
-			set
-			{
-				this._BankInfos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_ITInfo", Storage="_ITInfos", ThisKey="BPAN", OtherKey="BPAN")]
-		public EntitySet<ITInfo> ITInfos
-		{
-			get
-			{
-				return this._ITInfos;
-			}
-			set
-			{
-				this._ITInfos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_OtherInfo", Storage="_OtherInfos", ThisKey="BPAN", OtherKey="BPAN")]
-		public EntitySet<OtherInfo> OtherInfos
-		{
-			get
-			{
-				return this._OtherInfos;
-			}
-			set
-			{
-				this._OtherInfos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_PersonInfo", Storage="_PersonInfos", ThisKey="BPAN", OtherKey="BPAN")]
-		public EntitySet<PersonInfo> PersonInfos
-		{
-			get
-			{
-				return this._PersonInfos;
-			}
-			set
-			{
-				this._PersonInfos.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_BankInfos(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.ClientInfo = this;
-		}
-		
-		private void detach_BankInfos(BankInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.ClientInfo = null;
-		}
-		
-		private void attach_ITInfos(ITInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.ClientInfo = this;
-		}
-		
-		private void detach_ITInfos(ITInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.ClientInfo = null;
-		}
-		
-		private void attach_OtherInfos(OtherInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.ClientInfo = this;
-		}
-		
-		private void detach_OtherInfos(OtherInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.ClientInfo = null;
-		}
-		
-		private void attach_PersonInfos(PersonInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.ClientInfo = this;
-		}
-		
-		private void detach_PersonInfos(PersonInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.ClientInfo = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ITInfo")]
-	public partial class ITInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _PAN;
-		
-		private string _TAN;
-		
-		private string _VAT;
-		
-		private string _CST;
-		
-		private string _PTEC;
-		
-		private string _PTRC;
-		
-		private string _BPAN;
-		
-		private EntityRef<ClientInfo> _ClientInfo;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnPANChanging(string value);
-    partial void OnPANChanged();
-    partial void OnTANChanging(string value);
-    partial void OnTANChanged();
-    partial void OnVATChanging(string value);
-    partial void OnVATChanged();
-    partial void OnCSTChanging(string value);
-    partial void OnCSTChanged();
-    partial void OnPTECChanging(string value);
-    partial void OnPTECChanged();
-    partial void OnPTRCChanging(string value);
-    partial void OnPTRCChanged();
-    partial void OnBPANChanging(string value);
-    partial void OnBPANChanged();
-    #endregion
-		
-		public ITInfo()
-		{
-			this._ClientInfo = default(EntityRef<ClientInfo>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAN", DbType="NVarChar(50)")]
-		public string PAN
-		{
-			get
-			{
-				return this._PAN;
-			}
-			set
-			{
-				if ((this._PAN != value))
-				{
-					this.OnPANChanging(value);
-					this.SendPropertyChanging();
-					this._PAN = value;
-					this.SendPropertyChanged("PAN");
-					this.OnPANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAN", DbType="NVarChar(50)")]
-		public string TAN
-		{
-			get
-			{
-				return this._TAN;
-			}
-			set
-			{
-				if ((this._TAN != value))
-				{
-					this.OnTANChanging(value);
-					this.SendPropertyChanging();
-					this._TAN = value;
-					this.SendPropertyChanged("TAN");
-					this.OnTANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VAT", DbType="NVarChar(50)")]
-		public string VAT
-		{
-			get
-			{
-				return this._VAT;
-			}
-			set
-			{
-				if ((this._VAT != value))
-				{
-					this.OnVATChanging(value);
-					this.SendPropertyChanging();
-					this._VAT = value;
-					this.SendPropertyChanged("VAT");
-					this.OnVATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CST", DbType="NVarChar(50)")]
-		public string CST
-		{
-			get
-			{
-				return this._CST;
-			}
-			set
-			{
-				if ((this._CST != value))
-				{
-					this.OnCSTChanging(value);
-					this.SendPropertyChanging();
-					this._CST = value;
-					this.SendPropertyChanged("CST");
-					this.OnCSTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PTEC", DbType="NVarChar(50)")]
-		public string PTEC
-		{
-			get
-			{
-				return this._PTEC;
-			}
-			set
-			{
-				if ((this._PTEC != value))
-				{
-					this.OnPTECChanging(value);
-					this.SendPropertyChanging();
-					this._PTEC = value;
-					this.SendPropertyChanged("PTEC");
-					this.OnPTECChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PTRC", DbType="NVarChar(50)")]
-		public string PTRC
-		{
-			get
-			{
-				return this._PTRC;
-			}
-			set
-			{
-				if ((this._PTRC != value))
-				{
-					this.OnPTRCChanging(value);
-					this.SendPropertyChanging();
-					this._PTRC = value;
-					this.SendPropertyChanged("PTRC");
-					this.OnPTRCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BPAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BPAN
-		{
-			get
-			{
-				return this._BPAN;
-			}
-			set
-			{
-				if ((this._BPAN != value))
-				{
-					if (this._ClientInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBPANChanging(value);
-					this.SendPropertyChanging();
-					this._BPAN = value;
-					this.SendPropertyChanged("BPAN");
-					this.OnBPANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_ITInfo", Storage="_ClientInfo", ThisKey="BPAN", OtherKey="BPAN", IsForeignKey=true)]
-		public ClientInfo ClientInfo
-		{
-			get
-			{
-				return this._ClientInfo.Entity;
-			}
-			set
-			{
-				ClientInfo previousValue = this._ClientInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._ClientInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ClientInfo.Entity = null;
-						previousValue.ITInfos.Remove(this);
-					}
-					this._ClientInfo.Entity = value;
-					if ((value != null))
-					{
-						value.ITInfos.Add(this);
-						this._BPAN = value.BPAN;
-					}
-					else
-					{
-						this._BPAN = default(string);
-					}
-					this.SendPropertyChanged("ClientInfo");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OtherInfo")]
-	public partial class OtherInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _ServiceTaxNumber;
-		
-		private string _ExciseNumber;
-		
-		private string _PFESINumber;
-		
-		private string _BPAN;
-		
-		private EntityRef<ClientInfo> _ClientInfo;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnServiceTaxNumberChanging(string value);
-    partial void OnServiceTaxNumberChanged();
-    partial void OnExciseNumberChanging(string value);
-    partial void OnExciseNumberChanged();
-    partial void OnPFESINumberChanging(string value);
-    partial void OnPFESINumberChanged();
-    partial void OnBPANChanging(string value);
-    partial void OnBPANChanged();
-    #endregion
-		
-		public OtherInfo()
-		{
-			this._ClientInfo = default(EntityRef<ClientInfo>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServiceTaxNumber", DbType="NVarChar(50)")]
-		public string ServiceTaxNumber
-		{
-			get
-			{
-				return this._ServiceTaxNumber;
-			}
-			set
-			{
-				if ((this._ServiceTaxNumber != value))
-				{
-					this.OnServiceTaxNumberChanging(value);
-					this.SendPropertyChanging();
-					this._ServiceTaxNumber = value;
-					this.SendPropertyChanged("ServiceTaxNumber");
-					this.OnServiceTaxNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExciseNumber", DbType="NVarChar(200)")]
-		public string ExciseNumber
-		{
-			get
-			{
-				return this._ExciseNumber;
-			}
-			set
-			{
-				if ((this._ExciseNumber != value))
-				{
-					this.OnExciseNumberChanging(value);
-					this.SendPropertyChanging();
-					this._ExciseNumber = value;
-					this.SendPropertyChanged("ExciseNumber");
-					this.OnExciseNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PFESINumber", DbType="NVarChar(50)")]
-		public string PFESINumber
-		{
-			get
-			{
-				return this._PFESINumber;
-			}
-			set
-			{
-				if ((this._PFESINumber != value))
-				{
-					this.OnPFESINumberChanging(value);
-					this.SendPropertyChanging();
-					this._PFESINumber = value;
-					this.SendPropertyChanged("PFESINumber");
-					this.OnPFESINumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BPAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string BPAN
-		{
-			get
-			{
-				return this._BPAN;
-			}
-			set
-			{
-				if ((this._BPAN != value))
-				{
-					if (this._ClientInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBPANChanging(value);
-					this.SendPropertyChanging();
-					this._BPAN = value;
-					this.SendPropertyChanged("BPAN");
-					this.OnBPANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_OtherInfo", Storage="_ClientInfo", ThisKey="BPAN", OtherKey="BPAN", IsForeignKey=true)]
-		public ClientInfo ClientInfo
-		{
-			get
-			{
-				return this._ClientInfo.Entity;
-			}
-			set
-			{
-				ClientInfo previousValue = this._ClientInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._ClientInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ClientInfo.Entity = null;
-						previousValue.OtherInfos.Remove(this);
-					}
-					this._ClientInfo.Entity = value;
-					if ((value != null))
-					{
-						value.OtherInfos.Add(this);
-						this._BPAN = value.BPAN;
-					}
-					else
-					{
-						this._BPAN = default(string);
-					}
-					this.SendPropertyChanged("ClientInfo");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<ClientInfo>();
 			}
 		}
 	}
@@ -1440,6 +453,524 @@ namespace DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BankInfo")]
+	public partial class BankInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _BankName;
+		
+		private string _Branch;
+		
+		private string _AccountNo;
+		
+		private string _IfscCode;
+		
+		private string _MicrCode;
+		
+		private string _BPAN;
+		
+		private EntityRef<ClientInfo> _ClientInfo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnBankNameChanging(string value);
+    partial void OnBankNameChanged();
+    partial void OnBranchChanging(string value);
+    partial void OnBranchChanged();
+    partial void OnAccountNoChanging(string value);
+    partial void OnAccountNoChanged();
+    partial void OnIfscCodeChanging(string value);
+    partial void OnIfscCodeChanged();
+    partial void OnMicrCodeChanging(string value);
+    partial void OnMicrCodeChanged();
+    partial void OnBPANChanging(string value);
+    partial void OnBPANChanged();
+    #endregion
+		
+		public BankInfo()
+		{
+			this._ClientInfo = default(EntityRef<ClientInfo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BankName", DbType="NVarChar(100)")]
+		public string BankName
+		{
+			get
+			{
+				return this._BankName;
+			}
+			set
+			{
+				if ((this._BankName != value))
+				{
+					this.OnBankNameChanging(value);
+					this.SendPropertyChanging();
+					this._BankName = value;
+					this.SendPropertyChanged("BankName");
+					this.OnBankNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Branch", DbType="NVarChar(100)")]
+		public string Branch
+		{
+			get
+			{
+				return this._Branch;
+			}
+			set
+			{
+				if ((this._Branch != value))
+				{
+					this.OnBranchChanging(value);
+					this.SendPropertyChanging();
+					this._Branch = value;
+					this.SendPropertyChanged("Branch");
+					this.OnBranchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNo", DbType="NVarChar(50)")]
+		public string AccountNo
+		{
+			get
+			{
+				return this._AccountNo;
+			}
+			set
+			{
+				if ((this._AccountNo != value))
+				{
+					this.OnAccountNoChanging(value);
+					this.SendPropertyChanging();
+					this._AccountNo = value;
+					this.SendPropertyChanged("AccountNo");
+					this.OnAccountNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IfscCode", DbType="NVarChar(50)")]
+		public string IfscCode
+		{
+			get
+			{
+				return this._IfscCode;
+			}
+			set
+			{
+				if ((this._IfscCode != value))
+				{
+					this.OnIfscCodeChanging(value);
+					this.SendPropertyChanging();
+					this._IfscCode = value;
+					this.SendPropertyChanged("IfscCode");
+					this.OnIfscCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MicrCode", DbType="NVarChar(50)")]
+		public string MicrCode
+		{
+			get
+			{
+				return this._MicrCode;
+			}
+			set
+			{
+				if ((this._MicrCode != value))
+				{
+					this.OnMicrCodeChanging(value);
+					this.SendPropertyChanging();
+					this._MicrCode = value;
+					this.SendPropertyChanged("MicrCode");
+					this.OnMicrCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BPAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BPAN
+		{
+			get
+			{
+				return this._BPAN;
+			}
+			set
+			{
+				if ((this._BPAN != value))
+				{
+					if (this._ClientInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBPANChanging(value);
+					this.SendPropertyChanging();
+					this._BPAN = value;
+					this.SendPropertyChanged("BPAN");
+					this.OnBPANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_BankInfo", Storage="_ClientInfo", ThisKey="BPAN", OtherKey="BPAN", IsForeignKey=true)]
+		public ClientInfo ClientInfo
+		{
+			get
+			{
+				return this._ClientInfo.Entity;
+			}
+			set
+			{
+				ClientInfo previousValue = this._ClientInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._ClientInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ClientInfo.Entity = null;
+						previousValue.BankInfos.Remove(this);
+					}
+					this._ClientInfo.Entity = value;
+					if ((value != null))
+					{
+						value.BankInfos.Add(this);
+						this._BPAN = value.BPAN;
+					}
+					else
+					{
+						this._BPAN = default(string);
+					}
+					this.SendPropertyChanged("ClientInfo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ITInfo")]
+	public partial class ITInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _PAN;
+		
+		private string _TAN;
+		
+		private string _VAT;
+		
+		private string _CST;
+		
+		private string _PTEC;
+		
+		private string _PTRC;
+		
+		private string _BPAN;
+		
+		private EntityRef<ClientInfo> _ClientInfo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnPANChanging(string value);
+    partial void OnPANChanged();
+    partial void OnTANChanging(string value);
+    partial void OnTANChanged();
+    partial void OnVATChanging(string value);
+    partial void OnVATChanged();
+    partial void OnCSTChanging(string value);
+    partial void OnCSTChanged();
+    partial void OnPTECChanging(string value);
+    partial void OnPTECChanged();
+    partial void OnPTRCChanging(string value);
+    partial void OnPTRCChanged();
+    partial void OnBPANChanging(string value);
+    partial void OnBPANChanged();
+    #endregion
+		
+		public ITInfo()
+		{
+			this._ClientInfo = default(EntityRef<ClientInfo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAN", DbType="NVarChar(50)")]
+		public string PAN
+		{
+			get
+			{
+				return this._PAN;
+			}
+			set
+			{
+				if ((this._PAN != value))
+				{
+					this.OnPANChanging(value);
+					this.SendPropertyChanging();
+					this._PAN = value;
+					this.SendPropertyChanged("PAN");
+					this.OnPANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAN", DbType="NVarChar(50)")]
+		public string TAN
+		{
+			get
+			{
+				return this._TAN;
+			}
+			set
+			{
+				if ((this._TAN != value))
+				{
+					this.OnTANChanging(value);
+					this.SendPropertyChanging();
+					this._TAN = value;
+					this.SendPropertyChanged("TAN");
+					this.OnTANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VAT", DbType="NVarChar(50)")]
+		public string VAT
+		{
+			get
+			{
+				return this._VAT;
+			}
+			set
+			{
+				if ((this._VAT != value))
+				{
+					this.OnVATChanging(value);
+					this.SendPropertyChanging();
+					this._VAT = value;
+					this.SendPropertyChanged("VAT");
+					this.OnVATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CST", DbType="NVarChar(50)")]
+		public string CST
+		{
+			get
+			{
+				return this._CST;
+			}
+			set
+			{
+				if ((this._CST != value))
+				{
+					this.OnCSTChanging(value);
+					this.SendPropertyChanging();
+					this._CST = value;
+					this.SendPropertyChanged("CST");
+					this.OnCSTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PTEC", DbType="NVarChar(50)")]
+		public string PTEC
+		{
+			get
+			{
+				return this._PTEC;
+			}
+			set
+			{
+				if ((this._PTEC != value))
+				{
+					this.OnPTECChanging(value);
+					this.SendPropertyChanging();
+					this._PTEC = value;
+					this.SendPropertyChanged("PTEC");
+					this.OnPTECChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PTRC", DbType="NVarChar(50)")]
+		public string PTRC
+		{
+			get
+			{
+				return this._PTRC;
+			}
+			set
+			{
+				if ((this._PTRC != value))
+				{
+					this.OnPTRCChanging(value);
+					this.SendPropertyChanging();
+					this._PTRC = value;
+					this.SendPropertyChanged("PTRC");
+					this.OnPTRCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BPAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BPAN
+		{
+			get
+			{
+				return this._BPAN;
+			}
+			set
+			{
+				if ((this._BPAN != value))
+				{
+					if (this._ClientInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBPANChanging(value);
+					this.SendPropertyChanging();
+					this._BPAN = value;
+					this.SendPropertyChanged("BPAN");
+					this.OnBPANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_ITInfo", Storage="_ClientInfo", ThisKey="BPAN", OtherKey="BPAN", IsForeignKey=true)]
+		public ClientInfo ClientInfo
+		{
+			get
+			{
+				return this._ClientInfo.Entity;
+			}
+			set
+			{
+				ClientInfo previousValue = this._ClientInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._ClientInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ClientInfo.Entity = null;
+						previousValue.ITInfos.Remove(this);
+					}
+					this._ClientInfo.Entity = value;
+					if ((value != null))
+					{
+						value.ITInfos.Add(this);
+						this._BPAN = value.BPAN;
+					}
+					else
+					{
+						this._BPAN = default(string);
+					}
+					this.SendPropertyChanged("ClientInfo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RoleMangement")]
 	public partial class RoleMangement : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1681,6 +1212,523 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OtherInfo")]
+	public partial class OtherInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _ServiceTaxNumber;
+		
+		private string _ExciseNumber;
+		
+		private string _PFESINumber;
+		
+		private string _BPAN;
+		
+		private EntityRef<ClientInfo> _ClientInfo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnServiceTaxNumberChanging(string value);
+    partial void OnServiceTaxNumberChanged();
+    partial void OnExciseNumberChanging(string value);
+    partial void OnExciseNumberChanged();
+    partial void OnPFESINumberChanging(string value);
+    partial void OnPFESINumberChanged();
+    partial void OnBPANChanging(string value);
+    partial void OnBPANChanged();
+    #endregion
+		
+		public OtherInfo()
+		{
+			this._ClientInfo = default(EntityRef<ClientInfo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServiceTaxNumber", DbType="NVarChar(50)")]
+		public string ServiceTaxNumber
+		{
+			get
+			{
+				return this._ServiceTaxNumber;
+			}
+			set
+			{
+				if ((this._ServiceTaxNumber != value))
+				{
+					this.OnServiceTaxNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ServiceTaxNumber = value;
+					this.SendPropertyChanged("ServiceTaxNumber");
+					this.OnServiceTaxNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExciseNumber", DbType="NVarChar(200)")]
+		public string ExciseNumber
+		{
+			get
+			{
+				return this._ExciseNumber;
+			}
+			set
+			{
+				if ((this._ExciseNumber != value))
+				{
+					this.OnExciseNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ExciseNumber = value;
+					this.SendPropertyChanged("ExciseNumber");
+					this.OnExciseNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PFESINumber", DbType="NVarChar(50)")]
+		public string PFESINumber
+		{
+			get
+			{
+				return this._PFESINumber;
+			}
+			set
+			{
+				if ((this._PFESINumber != value))
+				{
+					this.OnPFESINumberChanging(value);
+					this.SendPropertyChanging();
+					this._PFESINumber = value;
+					this.SendPropertyChanged("PFESINumber");
+					this.OnPFESINumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BPAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BPAN
+		{
+			get
+			{
+				return this._BPAN;
+			}
+			set
+			{
+				if ((this._BPAN != value))
+				{
+					if (this._ClientInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBPANChanging(value);
+					this.SendPropertyChanging();
+					this._BPAN = value;
+					this.SendPropertyChanged("BPAN");
+					this.OnBPANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_OtherInfo", Storage="_ClientInfo", ThisKey="BPAN", OtherKey="BPAN", IsForeignKey=true)]
+		public ClientInfo ClientInfo
+		{
+			get
+			{
+				return this._ClientInfo.Entity;
+			}
+			set
+			{
+				ClientInfo previousValue = this._ClientInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._ClientInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ClientInfo.Entity = null;
+						previousValue.OtherInfos.Remove(this);
+					}
+					this._ClientInfo.Entity = value;
+					if ((value != null))
+					{
+						value.OtherInfos.Add(this);
+						this._BPAN = value.BPAN;
+					}
+					else
+					{
+						this._BPAN = default(string);
+					}
+					this.SendPropertyChanged("ClientInfo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ClientInfo")]
+	public partial class ClientInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _BPAN;
+		
+		private string _BusinessType;
+		
+		private string _BusinessName;
+		
+		private string _DateOfEstablishment;
+		
+		private string _BusinessContactNo;
+		
+		private string _BusinessEmailId;
+		
+		private EntitySet<PersonInfo> _PersonInfos;
+		
+		private EntitySet<BankInfo> _BankInfos;
+		
+		private EntitySet<ITInfo> _ITInfos;
+		
+		private EntitySet<OtherInfo> _OtherInfos;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnBPANChanging(string value);
+    partial void OnBPANChanged();
+    partial void OnBusinessTypeChanging(string value);
+    partial void OnBusinessTypeChanged();
+    partial void OnBusinessNameChanging(string value);
+    partial void OnBusinessNameChanged();
+    partial void OnDateOfEstablishmentChanging(string value);
+    partial void OnDateOfEstablishmentChanged();
+    partial void OnBusinessContactNoChanging(string value);
+    partial void OnBusinessContactNoChanged();
+    partial void OnBusinessEmailIdChanging(string value);
+    partial void OnBusinessEmailIdChanged();
+    #endregion
+		
+		public ClientInfo()
+		{
+			this._PersonInfos = new EntitySet<PersonInfo>(new Action<PersonInfo>(this.attach_PersonInfos), new Action<PersonInfo>(this.detach_PersonInfos));
+			this._BankInfos = new EntitySet<BankInfo>(new Action<BankInfo>(this.attach_BankInfos), new Action<BankInfo>(this.detach_BankInfos));
+			this._ITInfos = new EntitySet<ITInfo>(new Action<ITInfo>(this.attach_ITInfos), new Action<ITInfo>(this.detach_ITInfos));
+			this._OtherInfos = new EntitySet<OtherInfo>(new Action<OtherInfo>(this.attach_OtherInfos), new Action<OtherInfo>(this.detach_OtherInfos));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BPAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string BPAN
+		{
+			get
+			{
+				return this._BPAN;
+			}
+			set
+			{
+				if ((this._BPAN != value))
+				{
+					this.OnBPANChanging(value);
+					this.SendPropertyChanging();
+					this._BPAN = value;
+					this.SendPropertyChanged("BPAN");
+					this.OnBPANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusinessType
+		{
+			get
+			{
+				return this._BusinessType;
+			}
+			set
+			{
+				if ((this._BusinessType != value))
+				{
+					this.OnBusinessTypeChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessType = value;
+					this.SendPropertyChanged("BusinessType");
+					this.OnBusinessTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string BusinessName
+		{
+			get
+			{
+				return this._BusinessName;
+			}
+			set
+			{
+				if ((this._BusinessName != value))
+				{
+					this.OnBusinessNameChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessName = value;
+					this.SendPropertyChanged("BusinessName");
+					this.OnBusinessNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfEstablishment", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string DateOfEstablishment
+		{
+			get
+			{
+				return this._DateOfEstablishment;
+			}
+			set
+			{
+				if ((this._DateOfEstablishment != value))
+				{
+					this.OnDateOfEstablishmentChanging(value);
+					this.SendPropertyChanging();
+					this._DateOfEstablishment = value;
+					this.SendPropertyChanged("DateOfEstablishment");
+					this.OnDateOfEstablishmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessContactNo", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusinessContactNo
+		{
+			get
+			{
+				return this._BusinessContactNo;
+			}
+			set
+			{
+				if ((this._BusinessContactNo != value))
+				{
+					this.OnBusinessContactNoChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessContactNo = value;
+					this.SendPropertyChanged("BusinessContactNo");
+					this.OnBusinessContactNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessEmailId", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string BusinessEmailId
+		{
+			get
+			{
+				return this._BusinessEmailId;
+			}
+			set
+			{
+				if ((this._BusinessEmailId != value))
+				{
+					this.OnBusinessEmailIdChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessEmailId = value;
+					this.SendPropertyChanged("BusinessEmailId");
+					this.OnBusinessEmailIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_PersonInfo", Storage="_PersonInfos", ThisKey="BPAN", OtherKey="BPAN")]
+		public EntitySet<PersonInfo> PersonInfos
+		{
+			get
+			{
+				return this._PersonInfos;
+			}
+			set
+			{
+				this._PersonInfos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_BankInfo", Storage="_BankInfos", ThisKey="BPAN", OtherKey="BPAN")]
+		public EntitySet<BankInfo> BankInfos
+		{
+			get
+			{
+				return this._BankInfos;
+			}
+			set
+			{
+				this._BankInfos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_ITInfo", Storage="_ITInfos", ThisKey="BPAN", OtherKey="BPAN")]
+		public EntitySet<ITInfo> ITInfos
+		{
+			get
+			{
+				return this._ITInfos;
+			}
+			set
+			{
+				this._ITInfos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ClientInfo_OtherInfo", Storage="_OtherInfos", ThisKey="BPAN", OtherKey="BPAN")]
+		public EntitySet<OtherInfo> OtherInfos
+		{
+			get
+			{
+				return this._OtherInfos;
+			}
+			set
+			{
+				this._OtherInfos.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PersonInfos(PersonInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.ClientInfo = this;
+		}
+		
+		private void detach_PersonInfos(PersonInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.ClientInfo = null;
+		}
+		
+		private void attach_BankInfos(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.ClientInfo = this;
+		}
+		
+		private void detach_BankInfos(BankInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.ClientInfo = null;
+		}
+		
+		private void attach_ITInfos(ITInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.ClientInfo = this;
+		}
+		
+		private void detach_ITInfos(ITInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.ClientInfo = null;
+		}
+		
+		private void attach_OtherInfos(OtherInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.ClientInfo = this;
+		}
+		
+		private void detach_OtherInfos(OtherInfo entity)
+		{
+			this.SendPropertyChanging();
+			entity.ClientInfo = null;
 		}
 	}
 }

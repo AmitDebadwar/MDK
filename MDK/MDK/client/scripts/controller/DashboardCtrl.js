@@ -3,15 +3,15 @@ angular.module("MDKApp").controller("DashboardCtrl", ["$scope","$rootScope", "$s
 
 
     var init = function () {
-$rootScope.loading=apiService.getAllBusinessLines().then(getAllBusinessLinesSuccess).catch();
+$rootScope.loading=apiService.getAllPersonsInfo().then(getAllPersonsInfoSuccess).catch();
     };
 
-    var getAllBusinessLinesSuccess = function (data) {
+    var getAllPersonsInfoSuccess = function (data) {
         console.log(data);
 
-        if (data && data.data && data.data.getAllBusinessLinesResult && data.data.getAllBusinessLinesResult.allRecords) {
+        if (data && data.data && data.data.getAllPersonsInfoResult && data.data.getAllPersonsInfoResult.allRecords) {
             
-            $scope.businessLines = data.data.getAllBusinessLinesResult.allRecords;
+            $scope.businessLines = data.data.getAllPersonsInfoResult.allRecords;
             console.log($scope.businessLines);
         }
 

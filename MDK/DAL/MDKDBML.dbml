@@ -1,52 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MDK_DB" Class="MDKDBMLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Table Name="dbo.BankInfo" Member="BankInfos">
-    <Type Name="BankInfo">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BankName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Branch" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="AccountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IfscCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MicrCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BPAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="ClientInfo_BankInfo" Member="ClientInfo" ThisKey="BPAN" OtherKey="BPAN" Type="ClientInfo" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ClientInfo" Member="ClientInfos">
-    <Type Name="ClientInfo">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BPAN" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="BusinessType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BusinessName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="DateOfEstablishment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="ClientInfo_BankInfo" Member="BankInfos" ThisKey="BPAN" OtherKey="BPAN" Type="BankInfo" />
-      <Association Name="ClientInfo_ITInfo" Member="ITInfos" ThisKey="BPAN" OtherKey="BPAN" Type="ITInfo" />
-      <Association Name="ClientInfo_OtherInfo" Member="OtherInfos" ThisKey="BPAN" OtherKey="BPAN" Type="OtherInfo" />
-      <Association Name="ClientInfo_PersonInfo" Member="PersonInfos" ThisKey="BPAN" OtherKey="BPAN" Type="PersonInfo" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ITInfo" Member="ITInfos">
-    <Type Name="ITInfo">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PAN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="TAN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="VAT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="CST" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PTEC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PTRC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BPAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="ClientInfo_ITInfo" Member="ClientInfo" ThisKey="BPAN" OtherKey="BPAN" Type="ClientInfo" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OtherInfo" Member="OtherInfos">
-    <Type Name="OtherInfo">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ServiceTaxNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ExciseNumber" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="PFESINumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BPAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="ClientInfo_OtherInfo" Member="ClientInfo" ThisKey="BPAN" OtherKey="BPAN" Type="ClientInfo" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.PersonInfo" Member="PersonInfos">
     <Type Name="PersonInfo">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -62,6 +14,31 @@
       <Association Name="ClientInfo_PersonInfo" Member="ClientInfo" ThisKey="BPAN" OtherKey="BPAN" Type="ClientInfo" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.BankInfo" Member="BankInfos">
+    <Type Name="BankInfo">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BankName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Branch" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AccountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IfscCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MicrCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BPAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ClientInfo_BankInfo" Member="ClientInfo" ThisKey="BPAN" OtherKey="BPAN" Type="ClientInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ITInfo" Member="ITInfos">
+    <Type Name="ITInfo">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PAN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TAN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VAT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CST" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PTEC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PTRC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BPAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ClientInfo_ITInfo" Member="ClientInfo" ThisKey="BPAN" OtherKey="BPAN" Type="ClientInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.RoleMangement" Member="RoleMangements">
     <Type Name="RoleMangement">
       <Column Name="Rid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -75,6 +52,31 @@
       <Column Name="LoginName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OtherInfo" Member="OtherInfos">
+    <Type Name="OtherInfo">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServiceTaxNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ExciseNumber" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PFESINumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BPAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ClientInfo_OtherInfo" Member="ClientInfo" ThisKey="BPAN" OtherKey="BPAN" Type="ClientInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClientInfo" Member="ClientInfos">
+    <Type Name="ClientInfo">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BPAN" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BusinessType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfEstablishment" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessContactNo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessEmailId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ClientInfo_PersonInfo" Member="PersonInfos" ThisKey="BPAN" OtherKey="BPAN" Type="PersonInfo" />
+      <Association Name="ClientInfo_BankInfo" Member="BankInfos" ThisKey="BPAN" OtherKey="BPAN" Type="BankInfo" />
+      <Association Name="ClientInfo_ITInfo" Member="ITInfos" ThisKey="BPAN" OtherKey="BPAN" Type="ITInfo" />
+      <Association Name="ClientInfo_OtherInfo" Member="OtherInfos" ThisKey="BPAN" OtherKey="BPAN" Type="OtherInfo" />
     </Type>
   </Table>
 </Database>

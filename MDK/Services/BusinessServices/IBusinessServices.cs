@@ -15,120 +15,6 @@ namespace Services.BusinessServices
     [ServiceContract]
     public interface IBusinessServices
     {
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TPersonalInfoData getAllBusinessLines(string data);
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TPersonalInfoData createBusinessUser(string data);
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TLineDetails getLineDetails(string data);
-
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        string fileUpload(Stream stream);
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        string uploadITACKN(Stream stream);
-
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        string uploadDocuments(Stream stream);
-
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TFileData getDocumentsToDownload(string data);
-
-
-        //[OperationContract]
-        //[WebInvoke(ResponseFormat = WebMessageFormat.Json,
-        //    RequestFormat = WebMessageFormat.Json,
-        //    BodyStyle = WebMessageBodyStyle.Wrapped,
-        //    Method = "POST")]
-        //string documentDownload(string path);
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TBankData saveBankInformation(string data);
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TITInfoData saveITInfo(string data);
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TOtherInfoData saveOtherInfo(string data);
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TBankData getBankDetails(string businessGUID);
-
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TITInfoData getITDetails(string businessGUID);
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-            RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
-            Method = "POST")]
-        TOtherInfoData getOtherDetails(string businessGUID);
-
-
-        [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
-             RequestFormat = WebMessageFormat.Json,
-             BodyStyle = WebMessageBodyStyle.Wrapped,
-             Method = "POST")]
-        Stream downloadFile(string filePath);
-        
-
-        
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json,
              RequestFormat = WebMessageFormat.Json,
@@ -136,7 +22,12 @@ namespace Services.BusinessServices
              Method = "POST")]
         TClientInfo enrollClient(string data);
 
-        
 
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            Method = "POST")]
+        TPersonalInfoData createBusinessPerson(string data);
     }
 }
